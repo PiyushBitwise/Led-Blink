@@ -1,12 +1,16 @@
 #include <Arduino.h>
-
 void setup() {
-    pinMode(2, OUTPUT);
+    Serial.begin(115200);
+    pinMode(2,OUTPUT);
+}
+void loop() {
+    int tv = touchRead(4);
+    Serial.println(tv);
+if(tv < 15) {
+digitalWrite(2,HIGH);}
+else{
+digitalWrite(2,LOW);
+}
+delay(100);
 }
 
-void loop() {
-    digitalWrite(2, HIGH);
-    delay(9);
-    digitalWrite(2, LOW);
-    delay(1);
-}
